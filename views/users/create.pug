@@ -1,0 +1,17 @@
+extends ../layouts/common
+block Content
+  form(action="/users/create", method="POST")
+    .form-row
+      .form-group.col-md-6
+        label(for='inputEmail4') Email
+        input#inputEmail4.form-control(name='email', type='email', placeholder='Email')
+      .form-group.col-md-6
+        label(for='inputPassword4') Password
+        input#inputPassword4.form-control(name='password', type='password', placeholder='Password')
+    .form-group
+      label(for='inputName') Name
+      input#inputName.form-control(name='name', type='text')
+    .form-group
+      label(for='inputPhone') Phone
+      input#inputPhone.form-control(name='phone', type='text')
+    button.btn.btn-primary(type='submit') Add
