@@ -14,3 +14,30 @@ block Content
             h5.card-title= product.name
             p.card-tex= product.description
             a.btn.btn-primary(href='#') Add to cart
+  if page
+    if page === 1
+      nav(aria-label='Page navigation example')
+        ul.pagination
+          li.page-item
+            a.page-link(href='?page='+ (page)) Previous
+          li.page-item
+            a.page-link(href='?page='+ (page)) 1
+          li.page-item
+            a.page-link(href='?page='+ (page+1)) 2
+          li.page-item
+            a.page-link(href='?page='+ (page+2)) 3
+          li.page-item
+            a.page-link(href='?page='+ (page+1)) Next
+    else
+      nav(aria-label='Page navigation example')
+        ul.pagination
+          li.page-item
+            a.page-link(href='?page='+ (page-1)) Previous
+          li.page-item
+            a.page-link(href='?page='+ (page-1))= page - 1
+          li.page-item
+            a.page-link(href='?page='+ (page))= page
+          li.page-item
+            a.page-link(href='?page='+ (page+1))= page + 1
+          li.page-item
+            a.page-link(href='?page='+ (page+1)) Next
