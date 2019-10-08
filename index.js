@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 
 const userRoutes = require('./routes/user.routes');
+const productRoutes = require('./routes/product.routes')
 app.set('view engine', 'pug')
 app.set('views', './views')
 app.use(express.json()) // for parsing application/json
@@ -13,4 +14,5 @@ app.get('/', (req, res) => res.render('index', {
 }))
 
 app.use('/users', userRoutes);
+app.use('/products', productRoutes);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
