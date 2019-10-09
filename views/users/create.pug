@@ -1,17 +1,20 @@
 extends ../layouts/common
 block Content
+  if errors
+    each error in errors
+      .alert.alert-danger= error
   form(action="/users/create", method="POST")
     .form-row
       .form-group.col-md-6
         label(for='inputEmail4') Email
-        input#inputEmail4.form-control(name='email', type='email', placeholder='Email')
+        input#inputEmail4.form-control(name='email', type='email', placeholder='Email', value=values? values.email:"")
       .form-group.col-md-6
         label(for='inputPassword4') Password
-        input#inputPassword4.form-control(name='password', type='password', placeholder='Password')
+        input#inputPassword4.form-control(name='password', type='password', placeholder='Password', value=values? values.password:"")
     .form-group
       label(for='inputName') Name
-      input#inputName.form-control(name='name', type='text')
+      input#inputName.form-control(name='name', type='text', value=values? values.name:"")
     .form-group
       label(for='inputPhone') Phone
-      input#inputPhone.form-control(name='phone', type='text')
+      input#inputPhone.form-control(name='phone', type='text', value=values? values.phone:"")
     button.btn.btn-primary(type='submit') Add
