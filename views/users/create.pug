@@ -1,5 +1,6 @@
 extends ../layouts/common
 block Content
+  h1 Create Users
   if errors
     each error in errors
       .alert.alert-danger= error
@@ -17,4 +18,4 @@ block Content
     .form-group
       label(for='inputPhone') Phone
       input#inputPhone.form-control(name='phone', type='text', value=values? values.phone:"")
-    button.btn.btn-primary(type='submit') Add
+    button.btn.btn-primary(type='submit') Create

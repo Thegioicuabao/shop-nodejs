@@ -4,9 +4,11 @@
   "description": "Fist commit in my life <3",
   "main": "index.js",
   "dependencies": {
+    "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "lowdb": "^1.0.0",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "shortid": "^2.2.15"
   },
   "devDependencies": {
     "nodemon": "^1.19.3"
