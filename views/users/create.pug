@@ -4,7 +4,7 @@ block Content
   if errors
     each error in errors
       .alert.alert-danger= error
-  form(action="/users/create", method="POST")
+  form(action="/users/create", method="POST", enctype='multipart/form-data')
     .form-row
       .form-group.col-md-6
         label(for='inputEmail4') Email
@@ -18,4 +18,7 @@ block Content
     .form-group
       label(for='inputPhone') Phone
       input#inputPhone.form-control(name='phone', type='text', value=values? values.phone:"")
+    .form-group
+      label(for='inputAvatar') Avatar
+      input#inputAvatar.form-control-file(name='avatar', type='file')   
     button.btn.btn-primary(type='submit') Create

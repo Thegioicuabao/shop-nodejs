@@ -17,6 +17,7 @@ block Content
       each user in users
         tr
           td
+            img(src= user.avatar, width='50px')
           td= user.name
           td= user.phone
           td= user.email
