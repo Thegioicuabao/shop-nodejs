@@ -6,11 +6,14 @@ module.exports.addToCart = function(req, res){
         res.redirect('/products')
         return
     }
-    var count =  db.get('sessions').find({id: sessionId}).get('cart.' + productId, 0).value()
-    db.get('sessions').find({id: sessionId}).set('cart.' + productId, count+1).write();
-
-    var x = db.get('sessions').find({id: sessionId}).value()
-    var countCart = Object.values(x.cart).reduce((a, b) => a + b)
-    db.get('sessions').find({id: sessionId}).set('sum', countCart).write();
+    var count = db.get('sessions')
+    .find({id: sessionId})
+    .get('cart.' + productId, 0)
+    .value()
+    
+    db.get('sessions')
+    .find({id: sessionId})
+    .set('cart.' + productId, count+1)
+    .write();
     res.redirect('/products')
 }

@@ -2,7 +2,7 @@ var shortid = require('shortid');
 var db = require('../db');
 module.exports = function(req, res, next){
     if (!req.signedCookies.sessionId){
-        var sessionId = shortid.generate();
+        let sessionId = shortid.generate();
         res.cookie('sessionId', sessionId, {
             signed: true
         });
@@ -10,7 +10,8 @@ module.exports = function(req, res, next){
             id: sessionId
         }).write();
     }
-    var cart = db.get('sessions').find({id: req.signedCookies.sessionId}).value()
-    res.locals.cart = cart
+    let sessionId = req.signedCookies.sessionId;
+    var x = db.get('sessions').find({id: sessionId}).value()
+    res.locals.cart = Object.values(x.cart).reduce((a, b) => a + b)
     next();
 }  
