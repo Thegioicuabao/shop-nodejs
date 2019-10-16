@@ -13,7 +13,7 @@ block Content
           .card-body
             h5.card-title= product.name
             p.card-tex= product.description
-            a.btn.btn-primary(href='#') Add to cart
+            a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
   if page
     if page === 1
       nav(aria-label='Page navigation example')
