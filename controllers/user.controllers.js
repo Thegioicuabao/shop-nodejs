@@ -29,3 +29,10 @@ module.exports.postCreate = function(req, res) {
   db.get('users').push(req.body).write();
   res.redirect('/users');
 };
+
+module.exports.get = function(req, res){
+  var id = req.params.id;
+  res.render('users/view', {
+    user: db.get('users').find({id: id}).value()
+  });
+}

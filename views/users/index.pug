@@ -13,6 +13,7 @@ block Content
         th(scope='col') Name
         th(scope='col') Phone
         th(scope='col') Email
+        th actions
     tbody
       each user in users
         tr
@@ -21,3 +22,5 @@ block Content
           td= user.name
           td= user.phone
           td= user.email
+          td 
+            a.btn.btn-primary(href="/users/" + user.id) View

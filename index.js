@@ -14,7 +14,7 @@ app.set('view engine', 'pug')
 app.set('views', './views')
 app.use(express.json()) 
 app.use(express.urlencoded({ extended: true })) 
-app.use(cookieParser(shortid.generate()))
+app.use(cookieParser('123'))
 app.use(express.static('public'))
 app.get('/', (req, res) => res.render('index', {
     name: 'Buro Shop'
