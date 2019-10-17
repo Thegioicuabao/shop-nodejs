@@ -10,8 +10,6 @@ module.exports = function(req, res, next){
             id: sessionId
         }).write();
     }
-    let sessionId = req.signedCookies.sessionId;
-    var x = db.get('sessions').find({id: sessionId}).value()
-    res.locals.cart = Object.values(x.cart).reduce((a, b) => a + b)
+    res.locals.countCart = db.get("sessions").find({ id: req.signedCookies.sessionId }).get("cart").size().value();
     next();
 }  

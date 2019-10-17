@@ -15,7 +15,7 @@ html
           li.nav-item
             a.nav-link(href='/products') Cart
           li.nav-item
-            a.nav-link(href='#')= cart
+            a.nav-link(href='#')= countCart || ''
       if user
         p= user.name
     .container.pt-5        
