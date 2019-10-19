@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()
 const port = 3000
@@ -16,7 +17,7 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 app.use(express.json()) ;
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser('123'));
+app.use(cookieParser(process.env.SESSION_SECRET));
 
 app.use(sessionMiddleware);
 app.use(express.static('public'));
