@@ -1,19 +1,20 @@
-var db = require('../db')
+var Product = require('../models/product.model')
 
-module.exports.index = function(req, res){
+module.exports.index = async function(req, res){
     var page = parseInt(req.query.page)|| 1; 
     var perPage = 8;
     var start = (page-1)*perPage;
     var end = start + perPage
-    var products = db.get('products').value().slice(start, end)
+    var products = await Product.find();
+    
     res.render('products/index', {
-        products: products,
+        products: products.slice(start, end),
         page: page
       });
 }
-module.exports.search = function(req, res){
+module.exports.search = async function(req, res){
     var q = req.query.q
-    var products = db.get('products').value()
+    var products = await Product.find();
     var matchedProduct = products.filter(value => {
         return value.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
     })
